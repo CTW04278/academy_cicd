@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS T_RACK;
 DROP TABLE IF EXISTS T_TEAM_MEMBER;
 DROP TABLE IF EXISTS T_TEAM;
 DROP TYPE IF EXISTS rack_status_enum;
-DROP TYPE IF EXISTS default_location_enum;
+
 
 CREATE TYPE rack_status_enum AS ENUM ('Active', 'Returned', 'Repair', 'Outdated', 'Bricked');
 
@@ -15,9 +15,10 @@ CREATE TABLE T_TEAM
     product          varchar(100),
     created_at       TIMESTAMP DEFAULT now(),
     modified_at      TIMESTAMP,
-    default_location VARCHAR(6) check (default_location = 'Porto' OR default_location = 'Lisbon' OR
-                                       default_location = 'Braga')
+    default_location VARCHAR(6) check (default_location = 'PORTO' OR default_location = 'LISBON' OR
+                                       default_location = 'BRAGA')
 );
+CREATE SEQUENCE IF NOT EXISTS SEQ_TEAM_ID;
 
 CREATE TABLE T_TEAM_MEMBER
 (
@@ -29,6 +30,7 @@ CREATE TABLE T_TEAM_MEMBER
     modified_at TIMESTAMP,
     FOREIGN KEY (team_id) REFERENCES T_TEAM (id)
 );
+CREATE SEQUENCE IF NOT EXISTS SEQ_TEAM_MEMBER_ID;
 
 CREATE TABLE T_RACK
 (
@@ -36,11 +38,13 @@ CREATE TABLE T_RACK
     serial_number    varchar(20)      NOT NULL UNIQUE,
     status           rack_status_enum NOT NULL,
     team_id          BIGINT           NOT NULL REFERENCES T_TEAM (id),
-    default_location VARCHAR(6) check (default_location = 'Porto' OR default_location = 'Lisbon' OR
-                                       default_location = 'Braga'),
+    default_location VARCHAR(6) check (default_location = 'PORTO' OR default_location = 'LISBON' OR
+                                       default_location = 'BRAGA'),
+    assembled_at     DATE,
     created_at       TIMESTAMP DEFAULT now(),
     modified_at      TIMESTAMP
 );
+CREATE SEQUENCE IF NOT EXISTS SEQ_RACK_ID;
 
 CREATE TABLE T_RACK_ASSET
 (
@@ -49,6 +53,7 @@ CREATE TABLE T_RACK_ASSET
     rack_id   BIGINT      NOT NULL,
     FOREIGN KEY (rack_id) REFERENCES T_RACK (id)
 );
+CREATE SEQUENCE IF NOT EXISTS SEQ_RACK_ASSET_ID;
 
 CREATE TABLE T_BOOKING
 (
@@ -62,6 +67,7 @@ CREATE TABLE T_BOOKING
     FOREIGN KEY (rack_id) REFERENCES T_RACK (id),
     FOREIGN KEY (requester_id) REFERENCES T_TEAM_MEMBER (id)
 );
+CREATE SEQUENCE IF NOT EXISTS SEQ_BOOKING_ID;
 
 
 

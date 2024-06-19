@@ -11,7 +11,7 @@ Take a look at the sample DB and create the necessary SQL scripts for it.
 2. Create a new relation named “T_TEAM_MEMBER” which should contain the attributes (id, team_id,
    ctw_id, name, created_at, modified_at);
 3. Create a new relation named “T_RACK” which should contain the attributes (id, serial_number,
-   status, team_id, default_location, created_at, modified_at);
+   status, team_id, default_location, assembled_at, created_at, modified_at);
     1. The allowed status are 'Active', 'Returned', 'Repair', 'Outdated', 'Bricked';
 4. Create a new relation named “T_RACK_ASSET” which should contain the attributes (id, asset_tag,
    rack_id);
