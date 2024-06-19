@@ -34,7 +34,7 @@ You will start with a simple standalone application, you should follow the exerc
   - to
   - requester information
   - rack information
-- Each class should be **`immutable`** and have a **`builder`** class that will help you build each.
+- Each class should have a **`builder`** class that will help you build each.
 - Each class have common data you should take advantage of OO principles to enhance your code.
 
 ### Setup your persistence layer
@@ -69,5 +69,3 @@ You will start with a simple standalone application, you should follow the exerc
 - Class `Application" will be your controller layer.
 - Here you should create new data, add it to the database and return it back to the user (print results to console).
 - You should also handle exceptions.
-
- 
