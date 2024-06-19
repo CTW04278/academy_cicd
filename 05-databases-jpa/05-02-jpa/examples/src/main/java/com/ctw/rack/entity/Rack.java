@@ -33,17 +33,14 @@ public class Rack {
     private Long id;
     @Column(name = "SERIAL_NUMBER", length = 20, nullable = false)
     private String serialNumber;
-    @Enumerated(EnumType.STRING)
-    @Column(name = "STATUS")
-    private Status status;
     @Transient
     private Integer age;
     @Temporal(TemporalType.DATE)
     @Column(name = "ASSEMBLED_AT")
     private Date assembledAt;
     @Enumerated(EnumType.STRING)
-    @Column(name = "DEFAULT_LOCATION")
-    private DefaultLocation defaultLocation;
+    @Column(name = "STATUS")
+    private Status status;
     @Column(name = "TEAM_ID", nullable = false)
     private Long teamId;
     @ManyToOne(fetch = FetchType.LAZY)
