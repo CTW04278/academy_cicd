@@ -1,6 +1,39 @@
 # REST API
 
-1. Create a rest api that adds a Rack to the list. Below you can check a request and response example.
+In our system we need to represent a Rack, a Team to whom the Rack belongs, a Team Member that is the responsible for
+booking a Rack and the Booking itself that is performed by a Team Member on a Rack.
+
+To maintain the system and use the Rack Booking System, we'll need to create REST APIs for the basic operations.
+
+1. For each representation, create the following package structure
+   ```
+   com.ctw.workstation
+      |
+      | 'representationName'
+         | 
+         | entity 
+         | boundary
+   ```
+
+   You should end with something similar to this structure
+   ```
+   com.ctw.workstation
+      | booking
+         | entity 
+         | boundary
+      | rack
+         | entity 
+         | boundary
+      | team
+         | entity 
+         | boundary
+      | teammember
+         | entity 
+         | boundary
+   ```
+2. Create a Resource class for each representation and place it under the corresponding boundary package
+
+3. Create a rest endpoint that adds a Rack to the system. Below you can check a request and response example.
 
 ```
 REQUEST:
@@ -24,7 +57,7 @@ RESPONSE:
       }
 ```
 
-2. Create a rest api that adds a Team to the list. Below you can check a request and response example.
+4. Create a rest endpoint that adds a Team to the system. Below you can check a request and response example.
 
 ```
 REQUEST:
@@ -46,7 +79,7 @@ RESPONSE:
       }
 ```
 
-3. Create a rest api that adds a Booking to the list. Below you can check a request and response example.
+5. Create a rest endpoint that adds a Booking to the system. Below you can check a request and response example.
 
 ```
 REQUEST:
@@ -72,7 +105,7 @@ RESPONSE:
       }
 ```
 
-4. Create a rest api that retrieves a list of all racks. Below you can check a request and response example.
+6. Create a rest endpoint that retrieves a list of all racks. Below you can check a request and response example.
 
 ```
 REQUEST:
@@ -105,7 +138,7 @@ RESPONSE:
       }
 ```
 
-4. Create a rest api that retrieves a rack by id. Below you can check a request and response example.
+7. Create a rest endpoint that retrieves a rack by id. Below you can check a request and response example.
 
 ```
 REQUEST:
@@ -122,13 +155,13 @@ RESPONSE:
       }
 ```
 
-5. Create a rest api that updates a rack by id.
+8. Create a rest endpoint that updates a rack by id.
 
-6. Create a rest api that deletes a rack by id.
+9. Create a rest endpoint that deletes a rack by id.
 
 ## Optional Exercise:
 
-1. Add a query parameter to the list api that returns all racks of a specific status. Below you can check a request
+1. Add a query parameter to the list endpoint that returns all racks of a specific status. Below you can check a request
    and response example.
 
 ```
@@ -150,4 +183,4 @@ RESPONSE:
       }
 ```
 
-2. Create a rest api for the remaining crud operations for all entities.
+2. Create a rest endpoint for the remaining crud operations for all entities.
