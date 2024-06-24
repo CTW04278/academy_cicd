@@ -10,6 +10,8 @@ import jakarta.inject.Singleton;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +21,9 @@ public class StandDAO {
 
     @Inject
     EntityManager entityManager;
+
+    @ConfigProperty(name = "com.ctw.stands.add.pt.address")
+    boolean addPtAddress;
 
     public List<StandDTO> getAllStands() {
         List<Stand> standEntityList = entityManager.createNamedQuery(Stand.GET_ALL_STANDS, Stand.class).getResultList();
@@ -53,6 +58,9 @@ public class StandDAO {
 
     public StandDTO create(StandDTO standDTO) {
         Stand standEntity = StandConverter.toEntity(standDTO);
+        if(addPtAddress) {
+            standEntity.setAddress(standEntity.getAddress() + " - Portugal");
+        }
         entityManager.persist(standEntity);
         return StandConverter.toDTO(standEntity);
     }
