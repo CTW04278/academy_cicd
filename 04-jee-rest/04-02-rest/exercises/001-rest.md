@@ -37,7 +37,7 @@ To maintain the system and use the Rack Booking System, we'll need to create RES
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/rack
+   URL: http://localhost:8080/workstation/racks
    VERB: POST
    BODY:
       {
@@ -61,7 +61,7 @@ RESPONSE:
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/team/
+   URL: http://localhost:8080/workstation/teams/
    VERB: POST
    BODY:
       {
@@ -83,7 +83,7 @@ RESPONSE:
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/booking/
+   URL: http://localhost:8080/workstation/bookings/
    VERB: POST
    BODY:
       {
@@ -109,7 +109,7 @@ RESPONSE:
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/rack/
+   URL: http://localhost:8080/workstation/racks/
    VERB: GET
 RESPONSE:
    STATUS: 200 OK
@@ -142,7 +142,7 @@ RESPONSE:
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/rack/32148
+   URL: http://localhost:8080/workstation/racks/32148
    VERB: GET
 RESPONSE:
    STATUS: 200 OK
@@ -166,7 +166,7 @@ RESPONSE:
 
 ```
 REQUEST:
-   URL: http://localhost:8080/workstation/rack/racks?status=active
+   URL: http://localhost:8080/workstation/racks/racks?status=active
    VERB: GET
 RESPONSE:
    STATUS: 200 OK
