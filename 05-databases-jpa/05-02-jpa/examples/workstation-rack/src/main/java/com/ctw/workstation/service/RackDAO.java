@@ -1,9 +1,10 @@
-package com.ctw.rack.service;
+package com.ctw.workstation.service;
 
-import com.ctw.rack.entity.Rack;
+
+import com.ctw.workstation.entity.Rack;
 import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
 
-import javax.persistence.EntityManager;
 import java.util.List;
 
 public class RackDAO {

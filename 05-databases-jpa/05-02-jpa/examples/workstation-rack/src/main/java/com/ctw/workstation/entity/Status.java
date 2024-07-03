@@ -1,4 +1,4 @@
-package com.ctw.rack.entity;
+package com.ctw.workstation.entity;
 
 public enum Status {
     ACTIVE, RETURNED, REPAIR, OUTDATED, BRICKED
