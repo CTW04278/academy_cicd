@@ -45,3 +45,4 @@ src/test/resources/.env
 *.zip
 *.rar
 .trivycache
+solutions
