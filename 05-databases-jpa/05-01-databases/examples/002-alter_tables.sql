@@ -1,0 +1,12 @@
+ALTER TABLE T_RACK ALTER COLUMN serial_number TYPE varchar(20);
+
+ALTER TABLE T_RACK DROP COLUMN default_location;
+
+ALTER TABLE T_RACK
+    ADD COLUMN created_at TIMESTAMP;
+
+ALTER TABLE T_RACK
+    ADD UNIQUE (serial_number);
+
+ALTER TABLE T_RACK
+    ALTER COLUMN created_at SET DEFAULT now();
