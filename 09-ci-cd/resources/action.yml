@@ -1,0 +1,13 @@
+name: {{ action-name }}
+description: {{ action-description }}
+inputs:
+  {{ input-name}}:
+    description: "{{ input-description }}"
+    required: {{ false or true }}
+    default: "{{ default-value }}"
+runs:
+  using: composite
+  steps:
+    - run: |
+        echo "Hello World"
+      shell: bash
