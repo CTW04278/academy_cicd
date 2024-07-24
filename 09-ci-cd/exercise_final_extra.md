@@ -7,7 +7,7 @@
 - https://nektosact.com/installation/index.html
 
 
-Now after we are able to test our application and even build and publish the image, we want to deploy it. For this, we want to use our local Kubernetes cluster like we did in the previous class. Unfortunately, we cannot connect from the Github to our local Kubernetes, so we will use the Act CLI tool that you installed in the pre-requesites to be able to run our Github Actions Workflow locally.
+Now after we are able to test our application and even build and publish the image, we want to deploy it. For this, we want to use our local Kubernetes cluster like we did in the Kubernetes module. Unfortunately, we cannot connect from the Github to our local Kubernetes, so we will use the Act CLI tool that you installed in the pre-requesites to be able to run our Github Actions Workflow locally.
 
 We will use this following command as our base to run the github actions:
 
@@ -16,6 +16,18 @@ We will use this following command as our base to run the github actions:
 This allows us to run the workflow directly on our host system taking into advantage our already installed tools.
 
 IMPORTANT NOTE: Since the actions are retrieved from the main branch by Act, even though the code is on your local machine, you will NEED TO PUSH the code to the main branch everytime you change an Action to be able to use the most recent code locally using Act.
+
+2. Create the necessary files that are necessary to deploy to Kubernetes
+
+Like we did it in the previous module you need to create the necessary configuration files that are necessary to deploy to Kubernetes:
+
+- configmap.yaml
+- deployment.yaml
+- service.yaml
+- secrets.yaml
+- ingress.yaml
+- role.yaml
+- rolebinding.yaml
 
 ## Run the github workflow in your local machine
 
@@ -29,7 +41,7 @@ NOTE: Replace the {{}}
 
 2. After you are able to run the workflow with Act, go to DockerHub to confirm that indeed the new image is there even though you run the action locally and the quarkus tests are successful.
 
-## Create PostgreSQL container locally for the mvn tests
+## Create PostgreSQL container locally
 
 1. Now, let's assume that we cannot be dependent on a PostgreSQL container already being created for us locally. So we will need to a new step before the "mvn test" command to create a PostgresSQL. Create a new action using the same structure of folders as the last two and configure it to recieve the following parameters:
     - name
