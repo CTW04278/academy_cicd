@@ -75,7 +75,7 @@ Commit the changes to the main branch (For convenience we will only use the main
 
     - Normally the path can be defined with a relative path from the root since the action is defined in the same repository of the workflow. But, for our case, since we are going to use Act in a few steps, this will help.
 
-3. Update the action with the necessary changes to run the docker build.
+3. Update the action with the necessary changes to run the maven build.
 
 4. Push the code and confirm that the image is built the same way as before. Check the "Actions" tab on Github.
 
