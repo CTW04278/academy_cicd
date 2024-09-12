@@ -3,7 +3,17 @@
 In our system we need to represent a Rack, a Team to whom the Rack belongs, a Team Member that is the responsible for
 booking a Rack and the Booking itself that is performed by a Team Member on a Rack.
 
-To maintain the system and use the Rack Booking System, we'll need to create REST APIs for the basic operations.
+To maintain the system and use the Rack Booking System, we'll create REST endpoints for the basic operations.
+
+Quarkus offers usefull tools to implement REST endpoints. Check the documentation [here](https://quarkus.io/guides/rest).
+
+In the application previously created you have an example (very simple) of a REST endpoint:
+
+![resource-example](../../assets/resource-example.png)
+
+## Create the REST endpoints
+
+At this point you don't have a database to persist the data, so like in the previous exercice, '03-oop-java101', you can create an in-memory database that will later be replaced by a database, so prepare your code to be simple to refactor.
 
 1. For each representation, create the following package structure
    ```
