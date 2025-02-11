@@ -1,5 +1,3 @@
-# BRANCH: steam-log-debug-test
-
 # Logging & Debugging
 
 ## Logging
