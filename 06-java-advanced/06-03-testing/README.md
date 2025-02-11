@@ -2,7 +2,7 @@
 
 Is testing time! At this point you should have a functional Quarkus application. Let's add some automated tests to make sure that it works as expected.
 
-We'll use [Junit](https://junit.org/junit5/) and [Rest-Assured](https://rest-assured.io). Take your time to read the documentation of both frameworks to understand how they work.
+We'll use [Junit](https://junit.org/junit5/), [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html), and [Rest-Assured](https://github.com/rest-assured/rest-assured/wiki/Usage). Take your time to read the frameworks documentation to understand how they work.
 
 If you follow everything correctly, you should have your application setup with [Quarkus Dev Services](https://quarkus.io/guides/dev-services), you won't need to do any extra work to start the tests, Dev Services will take care of the necessary dependencies like a database.
 
@@ -15,6 +15,12 @@ Check your "pom.xml", you should have the following dependencies:
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-junit5-mockito</artifactId>
             <scope>test</scope>
         </dependency>
 
