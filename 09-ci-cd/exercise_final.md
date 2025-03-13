@@ -8,6 +8,18 @@
     2. Make sure the "Actions" tab is enabled on the Github page.
     3. Generate an SSH Key and configure it on Github to make sure you have the right permissions to Read and Write to the repository
 
+2. Act
+
+    1. We will need Act to run github actions locally. Use chocolatey to install. If you don't have chocolatey, check the "Install_Maven_Git_Bash" file for instructions. 
+    
+    ```choco install act-cli```
+
+    2. Confirm you can use the command "act".
+
+3. Kubernetes
+
+    1. Kubernetes should be active on Docker Desktop configuration. Run ```kubectl get nodes``` to confirm it is working.
+
 ## Import the exercise code and create the first workflow
 
 1. Follow the instructions (They are also below) on the Github repository page to import the backend project that was implement in the previous modules and create the "main" branch. After this, you should be able to see the base code for our exercise on Github.
