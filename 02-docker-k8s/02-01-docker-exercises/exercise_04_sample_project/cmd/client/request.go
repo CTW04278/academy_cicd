@@ -9,7 +9,7 @@ import (
 	"os"
 )
 
-var baseURL string = "http://localhost"
+var baseURL string = "http://host.docker.internal"
 var port string = "3000"
 var requestUrl string = fmt.Sprintf("%s:%s?s=", baseURL, port)
 
