@@ -48,7 +48,7 @@ jobs:
         - name: Upload docker image file
         - run: mkdir -p ${{ env.artifact_name }}
         - run: echo hello > ${{ env.artifact_name }}.txt
-        - uses: actions/upload-artifact@v4
+          uses: actions/upload-artifact@v4
           with:
             name: upload_artifact
             path: ${{ env.artifact_name }}.txt
