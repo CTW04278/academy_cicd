@@ -1,0 +1,8 @@
+name: My Custom Action
+description: This is a custom action to build the maven project
+runs:
+  using: composite
+  steps:
+    - run: |
+        echo "Update me with the necessary commands"
+      shell: bash
