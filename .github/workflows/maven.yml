@@ -53,6 +53,13 @@ jobs:
             path: ${{ env.artifact_name }}.txt
 
 
+  listImages:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+        - name: List Docker images
+          run: docker image ls
+
         - uses: actions/download-artifact@v4
           with:
             name: upload_artifact
@@ -61,10 +68,3 @@ jobs:
 
         - name: Load Docker image
           run: docker load -i $ImageName.tar
-
-  listImages:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-        - name: List Docker images
-          run: docker image ls
