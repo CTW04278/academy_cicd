@@ -16,8 +16,8 @@ on:
 
 env:
     var: nice
-    ImageName: academyimage
-    TagName: v1.1
+    image_name: academyimage
+    tag_name: v1.1
     artifact_name: upload
 
 jobs:
@@ -39,18 +39,18 @@ jobs:
         - name: Run Docker Image from custom action
           uses: ./.github/actions/docker_build_inputs
           with:
-            tag_name: $TagName
-            image_name: $ImageName
+            tag_name: ${{ env.tag_name }}
+            image_name: ${{ env.image_name }}
         
         - name: Save docker image
-          run: docker save -o $ImageName.tar $ImageName:$TagName
+          run: docker save -o ${{ env.image_name }}.tar ${{ env.image_name }}:${{ env.tag_name }}
 
         - name: Upload docker image file
           run: mkdir -p ${{ env.artifact_name }} && echo hello > $ImageName.tar
         - uses: actions/upload-artifact@v4
           with:
-            name: upload_artifact
-            path: $ImageName.tar
+            name: ${{ env.artifact_name }}
+            path: "${{ env.image_name }}.tar"
 
 
   listImages:
@@ -59,12 +59,12 @@ jobs:
     steps:
         - uses: actions/download-artifact@v4
           with:
-            name: upload_artifact
+            name: ${{ env.artifact_name }}
         - name: Display structure of downloaded files
           run: ls -R
 
         - name: Load Docker image
-          run: docker load -i $ImageName.tar
+          run: docker load -i ${{ env.image_name }}.tar
           
         - name: List Docker images
           run: docker image ls
