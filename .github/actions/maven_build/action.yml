@@ -1,4 +1,4 @@
-name: My Custom Action
+name: My Custom Action - Maven
 description: This is a custom action to build the maven project
 runs:
   using: composite

@@ -30,8 +30,8 @@ jobs:
         - name: Run Maven Build from custom action
           uses: ./.github/actions/maven_build
 
-        - name: Create Docker image
-          run: docker build . --file Dockerfile --tag academy:$(date +%s)
+        - name: Run Docker Image from custom action
+          uses: ./.github/action/docker_build
         
         - name: List Docker images
           run: docker image ls
