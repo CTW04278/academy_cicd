@@ -34,7 +34,10 @@ jobs:
           uses: ./.github/actions/docker_build_inputs
           with:
             tag_name: 'v1.0'
-        
+  listImages:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v4
+
         - name: List Docker images
           run: docker image ls
-        
