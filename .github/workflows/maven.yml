@@ -18,6 +18,7 @@ env:
     var: nice
     ImageName: academyimage
     TagName: v1.1
+    artifact_name: upload
 
 jobs:
   build:
@@ -43,6 +44,14 @@ jobs:
         
         - name: Save docker image
           run: docker save -o $ImageName.tar $ImageName:$TagName
+
+        - name: Upload docker image file
+          run: mkdir -p ${{ env.artifact_name }}
+          run: echo hello > ${{ env.artifact_name }}.txt
+          uses: actions/upload-artifact@v4
+          with:
+            name: upload_artifact
+            path: ${{ env.artifact_name }}.txt
 
   listImages:
     needs: build
