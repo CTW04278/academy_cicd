@@ -8,7 +8,7 @@ inputs:
   image_name:
     description: "Image Name"
     required: true
-    default: "academy"
+    default: "academy2"
   tag_name:
     description: "Tag Name"
     required: false
