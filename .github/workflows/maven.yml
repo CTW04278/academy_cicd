@@ -20,7 +20,19 @@ jobs:
     steps:
         - uses: actions/checkout@v4
 
-        - name: Run Docker container
-          uses: ./.github/actions/maven_build
-        
+        - name: Set up JDK 21
+          uses: actions/setup-java@v4
+          with:
+              java-version: '21'
+              distribution: 'temurin'
+              cache: maven
 
+        - name: Run Maven Build from custom action
+          uses: ./.github/actions/maven_build
+
+        - name: Create Docker image
+          run: docker build . --file Dockerfile --tag academy:$(date +%s)
+        
+        - name: List Docker images
+          run: docker image ls
+        
