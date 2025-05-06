@@ -1,0 +1,8 @@
+name: My Custom Action - Docker
+description: This is a custom action to build the docker image
+runs:
+  using: composite
+  steps:
+    - name: Create Docker image
+      run: docker build . --file Dockerfile --tag academy:$(date +%s)
+      shell: bash
