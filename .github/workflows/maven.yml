@@ -16,7 +16,7 @@ on:
 
 env:
     var: nice
-    ImageName: academyImage
+    ImageName: academyimage
     TagName: v1.1
 
 jobs:
