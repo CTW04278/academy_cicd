@@ -52,6 +52,16 @@ jobs:
             name: upload_artifact
             path: ${{ env.artifact_name }}.txt
 
+        - name: Download artifact
+        - uses: actions/download-artifact@v4
+          with:
+            name: upload_artifact
+        - name: Display structure of downloaded files
+          run: ls -R
+
+        - name: Load Docker image
+          run: docker load -i $ImageName.tar
+
   listImages:
     needs: build
     runs-on: ubuntu-latest
