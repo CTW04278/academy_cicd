@@ -40,6 +40,10 @@ jobs:
           with:
             tag_name: $TagName
             image_name: $ImageName
+        
+        - name: Save docker image
+          run: docker save -o $ImageName.tar $ImageName:$TagName
+
   listImages:
     needs: build
     runs-on: ubuntu-latest
