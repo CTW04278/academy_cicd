@@ -31,7 +31,7 @@ jobs:
           uses: ./.github/actions/maven_build
 
         - name: Run Docker Image from custom action
-          uses: ./.github/actions/docker_build/action_with_inputs.yml
+          uses: ./.github/actions/docker_build_inputs
           with:
             tag_name: 'v1.0'
         
