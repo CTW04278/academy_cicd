@@ -35,6 +35,7 @@ jobs:
           with:
             tag_name: 'v1.0'
   listImages:
+    needs: build
     runs-on: ubuntu-latest
     steps:
         - name: List Docker images
