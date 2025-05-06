@@ -33,7 +33,7 @@ jobs:
         - name: Run Docker Image from custom action
           uses: ./.github/actions/docker_build/action_with_inputs.yml
           with:
-            {{tag_name}}: {{v1.0}}
+            tag_name: "v1.0"
         
         - name: List Docker images
           run: docker image ls
